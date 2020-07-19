@@ -1,0 +1,7 @@
+<%= simple_form_for(@user) do |u|%>
+    <%= u.error_notification %>
+    <%= u.input :name, label: "Name: ", placeholder: "input name here" %>
+    <%= u.input :username, label: "Username: ", placeholder: "input username here" %>
+    <%= u.input :favourite_number, label: "Favourite Number: ", placeholder: "what is your favourite number?" %>
+    <%= u.button :submit, label: "Submit", class: "button is-info" %>
+<% end %>

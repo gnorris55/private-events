@@ -1,0 +1,18 @@
+<h1>Users</h1>
+
+<% @users.each do |u|%>
+    <h3>User #<%= u.id%></h3>
+    <ul class="user-attributes">
+        <li> Name: <%= u.name %></li>
+        <li> Username: <%= u.username %></li>
+        <li> Favourite Number: <%= u.favourite_number %></li>
+    </ul>
+    <div class="links">
+        <p>
+            <%= link_to "edit", edit_user_path(u), class: "level-item" %>
+            <%= link_to "show", user_path(u) %>
+            <%= link_to "delete", user_path(u), method: :delete, 
+                data: {confirm: "do you Really want delete this user?"}%>
+        </p>
+    </div>
+<% end %>
