@@ -1,0 +1,9 @@
+
+<% if @user.present?%>
+    <h3>You searched for: <%= @user.name%></h3>
+    <p>Username: <%= @user.username%></p>
+    <p>Favourite Number: <%= @user.favourite_number%></p>
+<% else %>
+    <p>This user does not exist, you can click <%= link_to 'here', new_user_path %> to create one with those credentials </p>
+<% end %>
+
