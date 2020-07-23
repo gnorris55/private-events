@@ -1,15 +1,25 @@
+<link href="https://fonts.googleapis.com/css2?family=Red+Rose&display=swap" rel="stylesheet">
 <!DOCTYPE html>
-<html>
-  <nav>
-    <%= link_to "new user", new_user_path%> 
-    <%= link_to "home", root_path%>
-    <% if !session[:logged_in]%>
-      <%= link_to "sign_in", new_session_path%>
-    <% else %>
-      <%= link_to "log out", '/log_out' %>
-      <p> you are logged in as: <%= session[:current_user_name] %></p>
-    <% end %>   
 
+<html>
+  <div class="flash-notice">
+  <%=flash[:not_signed_in]%> 
+  <%=flash[:signed_in]%> 
+  <%= flash[:posted] %>
+  <%= flash[:post_not_valid] %>
+  </div>
+  <nav>
+    <p>
+      <%= link_to "all events", events_path%> 
+      <%= link_to "new user", new_user_path%> 
+      <%= link_to "home", root_path%>
+      <% if !session[:logged_in]%>
+        <%= link_to "sign_in", new_session_path%>
+      <% else %>
+        <%= link_to "post an event", new_event_path%>
+        <%= link_to "log out", '/log_out' %> of <%= session[:current_user_name] %>
+      <% end %>
+    </p>   
   </nav>
   
   <form action="/search">

@@ -18,4 +18,25 @@
 {
     margin-left: 20px;
 }
+body
+{
+    font-family: 'Red Rose', cursive;
+}
+.user-info
+{
+    margin: 0;
+    padding: 0;
+}
+ul
+{
+    list-style-type: none;
+}
+.flash-notice
+{
+    color: brown;
+}
+.event-stuff
+{
+    margin-left: 20px;
+}
 

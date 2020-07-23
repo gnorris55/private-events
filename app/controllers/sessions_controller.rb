@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(name: params[:q])
         if @user.present?
             session[:current_user_name] = @user.name
+            flash[:signed_in] = "you are now signed in as #{session[:current_user_name]}"
             session[:logged_in] = true
             redirect_to root_path
         else

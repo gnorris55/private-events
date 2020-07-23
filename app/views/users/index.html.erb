@@ -8,14 +8,17 @@
         <li> Username: <%= u.username %></li>
         <li> Favourite Number: <%= u.favourite_number %></li>
     </ul>
-    <% if @current_name == u.name%>
         <div class="links">
             <p>
-                <%= link_to "edit", edit_user_path(u), class: "level-item" %>
-                <%= link_to "show", user_path(u) %>
-                <%= link_to "delete", user_path(u), method: :delete, 
-                    data: {confirm: "do you Really want delete this user?"}%>
+                <% if @current_name != u.name%>
+                    <%= link_to "#{u.name}'s page", user_path(u) %>  
+                <% else %>
+                    <%= link_to "my page", user_path(u) %>  
+                    <%= link_to "edit", edit_user_path(u), class: "level-item" %>
+                    <%= link_to "delete", user_path(u), method: :delete, 
+                        data: {confirm: "do you Really want delete this user?"}%>
+                <%end%>
             </p>
         </div>
-    <%end%>
+    
 <% end %>

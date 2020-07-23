@@ -1,0 +1,7 @@
+<h1>new event</h1>
+
+<%= simple_form_for(@event) do |event|%>
+    <%= event.input :date, type: "text", label: "date" %>
+    <%= event.input :body, type: "text", label: "contents" %>
+    <%= event.button :submit, label: "submit"%>
+<% end %>

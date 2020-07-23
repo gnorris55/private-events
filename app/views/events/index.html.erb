@@ -1,0 +1,10 @@
+<h1>all events</h1>
+<% @users.each do |user| %>
+    <h3><%= link_to user.name, user_path(user.id)%></h3>
+    <% user.events.each do |event|%>
+        <p class="event-stuff">
+            <%= link_to event.date, event_path(event.id) %>:<br>
+            <%= event.body %> <br>
+        </p> 
+    <% end %>
+<% end %>

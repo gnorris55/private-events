@@ -1,7 +1,16 @@
-<h1>Show</h1>
-<p> Name: <%= @user.name %></p><br>
-<p> Username: <%= @user.username %></p><br>
-<p> Favourite Number: <%= @user.favourite_number %></p><br>
-<p><%= link_to "back to main page", root_path%></p>
+<h1><%= @user.name %></h1>
+<ul class="user-info">
+    <li><h4>user info: </h4></li>
+    <li> Username: <%= @user.username %></li>
+    <li> Favourite Number: <%= @user.favourite_number %></li>
+</ul>
+<ul class="user-info">
+    <li><h4><%= @user.name %>'s events: </h4></li>
+    <% @user.events.each do |e|%>
+        <h3> Date: <%= link_to e.date, event_path(e.id) %></h3>
+        <li> Contents: <%= e.body %></li>
+    <% end %>
+</ul><br>
+<%= link_to "back to main page", root_path%>
 
 

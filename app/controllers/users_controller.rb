@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
     def search
         @user = User.find_by(name: params[:q])
-        
     end
 
     def new 
