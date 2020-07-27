@@ -11,6 +11,15 @@
         <li> Contents: <%= e.body %></li>
     <% end %>
 </ul><br>
+<% if @user.attended_events.present?%>
+    <h3>attended_events</h3>
+    <% @user.attended_events.each do |e|%> 
+            <p>
+                <%= e.date %>: <br>
+                <%= e.body %>
+            </p>
+    <% end %>
+<% end %>
 <%= link_to "back to main page", root_path%>
 
 

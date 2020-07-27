@@ -1,3 +1,14 @@
+<% if !@event.attendees.find_by(name: session[:current_user_name]).present? %>
+    <% @event.attendees << User.find_by(name: session[:current_user_name])%>
+<% end %>
 <h2>Event #<%= @event.id %></h2>
 <h3>Date: <%= @event.date %></h3>
 <h3>Contents: <%= @event.body %></h3>
+
+
+<% if @event.attendees.present? %>
+    <h4>Event Attendees: </h4>
+    <% @event.attendees.each do |attendees|%>
+        <li><%= link_to attendees.name, user_path(attendees.id) %></li>
+    <% end %>
+<% end %>
